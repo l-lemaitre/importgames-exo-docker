@@ -1,0 +1,5 @@
+/.env
+/.idea/
+/src/importgames/.htaccess
+/src/importgames/backoff/.htaccess
+/src/importgames/backoff/.htpasswd

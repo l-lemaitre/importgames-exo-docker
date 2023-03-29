@@ -1,0 +1,48 @@
+version: '3.9'
+services:
+    nginx:
+        build:
+            dockerfile: docker/nginx/Dockerfile
+            context: .
+        depends_on:
+            - db
+        links:
+            - php-fpm
+        ports:
+            - '8082:80'
+        volumes:
+            - ./src:/var/www/html
+        networks:
+            - local
+    php-fpm:
+        build:
+            dockerfile: docker/php-fpm/Dockerfile
+            context: .
+        environment:
+            APP_ENV: dev
+            TZ: Europe/Prague
+        volumes:
+            - ./src:/var/www/html
+        networks:
+            - local
+    db:
+        image: mysql:8.0
+        command: --authentication_policy=mysql_native_password
+        ports:
+            - mode: host
+              target: 3306
+              published: 34000
+        environment:
+            MYSQL_ROOT_PASSWORD: 'secret'
+            MYSQL_DATABASE: importgames
+            MYSQL_USER: admin_local
+            MYSQL_PASSWORD: 'ps55prodlocal'
+            MYSQL_ROOT_HOST: "%"
+        healthcheck:
+            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+            timeout: 20s
+            retries: 10
+        networks:
+            - local
+networks:
+    local:
