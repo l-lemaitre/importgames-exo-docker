@@ -35,8 +35,8 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: 'secret'
             MYSQL_DATABASE: importgames
-            MYSQL_USER: admin_local
-            MYSQL_PASSWORD: 'ps55prodlocal'
+            MYSQL_USER: username
+            MYSQL_PASSWORD: 'password'
             MYSQL_ROOT_HOST: "%"
         healthcheck:
             test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]

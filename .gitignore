@@ -3,3 +3,5 @@
 /src/importgames/.htaccess
 /src/importgames/backoff/.htaccess
 /src/importgames/backoff/.htpasswd
+/src/importgames/backoff/css/.sass-cache/
+/src/importgames/css/.sass-cache/
