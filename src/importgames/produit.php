@@ -306,7 +306,7 @@
 
 
             // Si en utilisant la fonction substr() le segment de chaîne défini par la fonction strrchr() sur la variable prod["video"] à partir de "." et commençant au deuxième caractère est égal à "mp4",
-            if(substr(strrchr($prod["video"], "."), 1) == "mp4") {
+            if($prod["video"] && substr(strrchr($prod["video"], "."), 1) == "mp4") {
                 // la variable videoMp4 se voit affecté la valeur 1 et on affiche la balise html video dans le fichier produit.phtml ligne 112
                 $videoMp4 = true;
             }

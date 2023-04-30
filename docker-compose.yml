@@ -19,7 +19,6 @@ services:
             dockerfile: docker/php-fpm/Dockerfile
             context: .
         environment:
-            APP_ENV: dev
             TZ: Europe/Prague
         volumes:
             - ./src:/var/www/html
