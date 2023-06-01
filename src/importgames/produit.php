@@ -321,7 +321,7 @@
             // setlocale permet de définir les informations de localisation en Français, LC_TIME applique la configuration de localisation pour le format date et heure avec strftime() dans la page produit.phtml ligne 129
             //setlocale(LC_TIME, "fr_FR.utf8", "fr_FR.ISO-8859-1", "fr_FR.iso88591", "fr_FR", "fr", "fra", "french", "français");
             // Update PHP 8.1
-            $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE);
+            $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
 
 
             // Sélectionne et va chercher toutes les valeurs contenues dans la table "produit" de la base de données où la valeur de "cat_id" correspond et dont l'id est différent de celui du produit affiché dans le header
